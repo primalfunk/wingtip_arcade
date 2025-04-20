@@ -1,5 +1,5 @@
 // src/components/AlphabetGame.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ScoreProvider, useScore } from './ScoreProvider';
 import ScoreCounter from './ScoreCounter';
 import { shuffle, getOptions } from './utils';
@@ -9,7 +9,6 @@ import StreakCounter from './StreakCounter';
 export default function AlphabetGameWrapper({ onExit }) {
   const [poolKey, setPoolKey] = useState('all');
   const [caseMode, setCaseMode] = useState('upper');
-  const [showSparkle, setShowSparkle] = useState(false);
   const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
   const letterPools = {
     first9: letters.slice(0, 9),
@@ -63,7 +62,8 @@ function FlashcardGame({
   const [incorrectCount, setIncorrectCount] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
   const [animKey, setAnimKey] = useState(0);
-  const [streak, setStreak] = useState(0); // ⬅️ New
+  const [streak, setStreak] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
   const { setScore } = useScore();
 
   function renderLetter(l) {
@@ -88,33 +88,52 @@ function FlashcardGame({
       new Audio(sounds.hit).play();
       setCorrectCount((c) => c + 1);
       setScore((s) => s + 1);
-      setStreak((s) => s + 1); // ⬅️ Maintain streak
+      setStreak((s) => s + 1);
     } else {
       setFoxMood('sad');
       new Audio(sounds.miss).play();
       setIncorrectCount((c) => c + 1);
-      setStreak(0); // ⬅️ Reset streak
+      setStreak(0);
     }
 
     setTimeout(() => {
       setQueue((prev) => {
         const rest = prev.slice(1);
-        const newQueue = rest.length > 0 ? rest : shuffle(letterPools[poolKey]);
+        const newQueue =
+          rest.length > 0 ? rest : shuffle(letterPools[poolKey]);
         const next = newQueue[0];
         setCurrent(next);
         setOptions(getOptions(letterPools[poolKey], next));
-    
-        // Delay the next letter's sound to avoid overlapping with hit/miss
+
         setTimeout(() => {
           new Audio(sounds[next]).play();
-        }, 200);
-    
+        }, 150);
+
         return newQueue;
       });
       setFoxMood('neutral');
       setAnimKey((k) => k + 1);
       setDisabled(false);
     }, 800);
+  }
+
+  if (!hasStarted) {
+    return (
+      <div className="game-box fade-in">
+        <img src="/assets/fox-neutral.png" alt="Fox mascot" className="mascot" />
+        <h2>Ready to play?</h2>
+        <button
+          onClick={() => {
+            setHasStarted(true);
+            setTimeout(() => {
+              new Audio(sounds[current]).play();
+            }, 100);
+          }}
+        >
+          ▶ Start Game
+        </button>
+      </div>
+    );
   }
 
   if (showSummary) {
@@ -140,9 +159,8 @@ function FlashcardGame({
 
   return (
     <div key={animKey} className="game-box fade-in main-column">
-      <StreakCounter streak={streak} /> {/* ⬅️ Render at top */}
+      <StreakCounter streak={streak} />
 
-      {/* Dropdowns Row */}
       <div
         style={{
           display: 'flex',
