@@ -16,3 +16,9 @@ export function shuffle(arr) {
     return shuffle(opts);
   }
   
+  export function getWordOptions(pool, answer, count = 4) {
+    let choices = pool.filter((item) => item !== answer);
+    choices = shuffle(choices).slice(0, count - 1);
+    choices.push(answer);
+    return shuffle(choices);
+  }

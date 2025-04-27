@@ -9,6 +9,10 @@
   --font: 'Montserrat', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: var(--font);
@@ -20,30 +24,61 @@ body {
 }
 
 .app-container {
+  min-height: 100vh; /* ensures it fills full screen height */
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
+  overflow-y: auto; /* <-- this is the key */
+  padding: 1rem; /* optional: breathing room on small screens */
+  box-sizing: border-box;
 }
 
 .game-box {
   width: 90vw;
   height: auto;
   max-width: 800px;
-  max-height: 95vh;
-  overflow: hidden;
+  min-height: 90vh;
+  overflow-y: auto; /* ✅ allows scrolling if needed */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start; /* ✅ better for vertical stacking */
   background: var(--card-bg);
-  padding: 0rem;
+  padding: 1rem;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   text-align: center;
   box-sizing: border-box;
+}
+
+.game-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+  padding: 0 1rem; /* adds a little side padding for smaller screens */
+}
+
+.game-btn {
+  background: #f0f8ff;
+  border: 2px solid #00aaff;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #004466;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  width: 100%; /* make button full width by default */
+  max-width: 250px; /* but limit it on larger screens */
+  box-sizing: border-box;
+}
+
+.game-btn:hover {
+  background: #cceeff;
+  transform: translateY(-3px);
 }
 
 .title-screen {
@@ -52,8 +87,12 @@ body {
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   text-align: center;
-  max-width: 480px;
   width: 100%;
+  max-width: 600px; /* limit wide stretching on desktop */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 h1 {
@@ -126,6 +165,83 @@ select {
   margin-top: 1.5rem;
   animation: float 3s ease-in-out infinite;
 }
+
+.card-container {
+  perspective: 1000px;
+  margin: 0 auto 2rem;
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.card-front, .card-back {
+  width: 100%;
+  min-height: 400px;
+  background: #f5f0e6;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  backface-visibility: hidden;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-front {
+  z-index: 2;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.creature-image {
+  width: 100%;
+  height: auto;
+  max-height: 55vh; /* Limit vertical size nicely */
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}
+
+.culture-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.bio-panel h2 {
+  margin-bottom: 1rem;
+}
+
+.bio-panel p {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
 
 .button-group {
   display: flex;

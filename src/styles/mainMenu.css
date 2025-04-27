@@ -1,0 +1,93 @@
+/* Main Menu (Front Page) Styles */
+
+:root {
+    --card-bg: #f5f0e6;
+  }
+  
+  /* General Layout */
+  .app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  
+  /* Title Screen */
+  .title-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 2rem;
+    padding: 1rem;
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  /* Mascot Image */
+  .mascot {
+    width: 120px;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  
+  /* Title Text */
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Game Grid */
+  .game-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+  
+  /* Game Buttons */
+  .game-btn {
+    background: #f0f8ff;
+    border: 2px solid #00aaff;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #004466;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    width: 250px;
+    text-align: center;
+  }
+  
+  .game-btn:hover {
+    background: #cceeff;
+    transform: translateY(-3px);
+  }
+  
+  /* About Section */
+  .about-section {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #f8f8f8;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  /* About Toggle Button */
+  .about-btn {
+    background: #eeeeee;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    cursor: pointer;
+    border: 1px solid #ccc;
+  }
+  
