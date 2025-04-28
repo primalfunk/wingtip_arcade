@@ -68,6 +68,10 @@ export default function App() {
                 you. You can reach me with questions at:{" "}
                 <strong>jared.d.menard@gmail.com</strong>
               </p>
+              <p>
+                I built this with React.js, check out the code at:{" "}
+                <strong>https://github.com/primalfunk/wingtip_arcade</strong>
+              </p>
             </div>
           )}
         </div>
