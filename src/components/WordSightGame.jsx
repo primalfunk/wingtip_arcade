@@ -118,7 +118,7 @@ function WordFlashcardGame({ mode, setMode, wordPools, onQuit }) {
 
   if (!hasStarted) {
     return (
-      <div className="game-box fade-in">
+      <div className="game-box fade-in main-column" style={{ flexDirection: 'column' }}>
         <img src="/assets/fox-neutral.png" alt="Fox mascot" className="mascot" />
         <h2>Ready to play?</h2>
         <button
@@ -137,7 +137,7 @@ function WordFlashcardGame({ mode, setMode, wordPools, onQuit }) {
 
   if (showSummary) {
     return (
-      <div className="game-box fade-in">
+      <div className="game-box fade-in main-column" style={{ flexDirection: 'column' }}>
         <img src="/assets/fox-neutral.png" alt="Fox mascot" className="mascot" />
         <h2>Great job!</h2>
         <p>Questions answered: {correctCount + incorrectCount}</p>
@@ -152,7 +152,7 @@ function WordFlashcardGame({ mode, setMode, wordPools, onQuit }) {
   }
 
   return (
-    <div key={animKey} className="game-box fade-in main-column">
+    <div key={animKey} className="game-box fade-in main-column" style={{ flexDirection: 'column' }}>
       <StreakCounter streak={streak} />
 
       <div

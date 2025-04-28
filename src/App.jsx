@@ -5,6 +5,7 @@ import PeriodicGame from "./components/PeriodicGame";
 import DecimalGame from "./components/DecimalGame";
 import MythicGame from "./components/MythicGame";
 import WordSightGame from "./components/WordSightGame";
+import EcosystemGame from "./components/EcosystemGame";
 import './styles/mainMenu.css';
 
 export default function App() {
@@ -13,10 +14,11 @@ export default function App() {
 
   const gameOptions = [
     { label: "🎯 Alphabet Game", value: "alphabet" },
-    { label: "🧪 Periodic Table", value: "periodic" },
-    { label: "➗ Simple Multiplication", value: "decimal" },
-    { label: "🐉 Mythic Beasts & Legends", value: "mythic" },
     { label: "🧠 Word Sight Game", value: "wordSight" },
+    { label: "➗ Simple Multiplication", value: "decimal" },
+    { label: "🧪 Periodic Table", value: "periodic" },
+    { label: "🐉 Mythic Beasts & Legends", value: "mythic" },
+    { label: "🦊 Foxes and Rabbits", value: "ecosystem" }, 
   ];
 
   const handleSelect = (e) => {
@@ -81,6 +83,9 @@ export default function App() {
       {screen === "mythic" && <MythicGame onExit={() => setScreen("main")} />}
       {screen === "wordSight" && (
         <WordSightGame onExit={() => setScreen("main")} />
+      )}
+      {screen === "ecosystem" && (
+        <EcosystemGame onExit={() => setScreen("main")} />
       )}
     </div>
   );

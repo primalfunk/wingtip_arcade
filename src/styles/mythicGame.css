@@ -1,166 +1,303 @@
-/* Mythic Game (Card Game) Styles */
-
-/* Game Box */
-.game-box {
-    width: 90vw;
-    height: auto;
-    max-width: 800px;
-    min-height: 90vh;
-    overflow-y: auto;
+.mythic-content {
+    width: 100%;
+    max-width: 420px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    background: var(--card-bg);
+    gap: 0.75rem;
     padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    margin: 0 auto;
     box-sizing: border-box;
+    transform-origin: top center;
   }
   
-  /* Mythic Game Layout */
-  .mythic-game-layout {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 90vh;
+  @media (max-height: 700px), (max-width: 400px) {
+    .mythic-content {
+      transform: scale(0.9);
+    }
+  }
+  
+  @media (max-height: 600px), (max-width: 350px) {
+    .mythic-content {
+      transform: scale(0.8);
+    }
+  }
+  
+  @media (max-height: 500px), (max-width: 300px) {
+    .mythic-content {
+      transform: scale(0.7);
+    }
+  }
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.content-block {
     width: 100%;
-  }
-  
-  /* Question at Top */
-  .top-question {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
-  /* Card Area */
-  .middle-card {
-    flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
   }
-  
-  /* Answer Buttons Area */
-  .bottom-options {
-    margin-top: 2rem;
+
+.game-content {
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-  }
-  
-  /* Card Container and Card */
-  .card-container {
-    perspective: 1000px;
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  .card {
-    width: 100%;
-    max-width: 400px;
-    transform-style: preserve-3d;
-    transition: transform 1s;
-  }
-  
-  .card.flipped {
-    transform: rotateY(180deg);
-  }
-  
-  /* Card Faces */
-  .card-front, .card-back {
-    width: 100%;
-    min-height: 400px;
-    background: var(--card-bg);
-    border-radius: 12px;
-    overflow: hidden;
-    backface-visibility: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
     padding: 1rem;
+    box-sizing: border-box;
+    transform-origin: top center;
+  }
+  @media (max-height: 700px), (max-width: 400px) {
+    .game-content {
+      transform: scale(0.9);
+    }
+  }
+  
+  @media (max-height: 600px), (max-width: 350px) {
+    .game-content {
+      transform: scale(0.8);
+    }
+  }
+  
+  @media (max-height: 500px), (max-width: 300px) {
+    .game-content {
+      transform: scale(0.7);
+    }
+  }
+  
+  .game-box {
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: center;
+    overflow: hidden;
+    background: var(--card-bg);
   }
-  
-  /* Creature Image */
-  .creature-image {
+.game-controls {
+  flex-shrink: 0;
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 30vh; /* Control panel zone */
+}
+
+/* Mythic Game Layout */
+.mythic-game-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 90vh;
+  width: 100%;
+}
+
+/* Question at Top */
+.top-question {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Card Area */
+.middle-card {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Answer Buttons Area */
+.bottom-options {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Card Container and Card */
+.card-container {
     width: 100%;
-    height: auto;
-    max-height: 45vh;
-    object-fit: contain;
-    display: block;
-    margin: auto;
-  }
-  
-  /* Culture Overlay */
-  .culture-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.6);
-    color: white;
-    text-align: center;
-    padding: 0.5rem 0;
-    font-size: 1rem;
-    box-shadow: 0 -2px 6px rgba(0,0,0,0.5);
-  }
-  
-  /* Bio Panel */
-  .bio-panel h2 {
-    margin-bottom: 1rem;
-  }
-  
-  .bio-panel p {
-    font-size: 1.2rem;
-    text-align: center;
-    padding: 0 1rem;
-  }
-  
-  /* Answer Buttons */
-  .button-group, .bottom-options {
+    max-width: 300px;
+    aspect-ratio: 3 / 4; /* Keep 3:4 shape */
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
+    align-items: center;
+    perspective: 1000px;
+    flex-shrink: 0; /* 🛠 Don't shrink smaller */
+    margin-bottom: 1rem; /* 🛠 ensure visual separation from buttons */
   }
-  
-  button {
-    background: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    border: 2px solid #ccc;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-  }
-  
-  button:hover {
-    background: #eef6ff;
-    transform: translateY(-2px);
-  }
-  
-  button.correct {
-    background: #d4edda;
-    border-color: #28a745;
-    color: #155724;
-  }
-  
-  button.incorrect {
-    background: #f8d7da;
-    border-color: #dc3545;
-    color: #721c24;
-  }
-  
-  /* Streak Counter */
-  .streak-counter {
-    margin-top: 1rem;
+
+.card {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  aspect-ratio: 3 / 4; /* Enforce proportional card sizing */
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  position: relative;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Card Faces */
+.card-front,
+.card-back {
+  position: absolute; /* 🆕 was relative before */
+  width: 100%;
+  min-height: 400px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🆕 ADDED: Control rotation of faces */
+.card-front {
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* Creature Image */
+.creature-image {
+  width: 100%;
+  height: auto;
+  max-height: 45vh;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}
+
+/* Culture Overlay */
+.culture-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--card-bg);
+  color: #333;
+  text-align: center;
+  padding: 0.5rem;
+  font-family: "Cinzel", serif;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.culture-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.trait {
+  font-size: 0.9rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #555;
+  margin-top: 0.25rem;
+}
+
+/* Bio Panel */
+.bio-panel h2 {
+  font-family: "Cinzel", serif;
+  margin-bottom: 1rem;
+}
+
+.bio-panel p {
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* Answer Buttons */
+.button-group,
+.bottom-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: #eef6ff;
+  transform: translateY(-2px);
+}
+
+button.correct {
+  background: #d4edda;
+  border-color: #28a745;
+  color: #155724;
+}
+
+button.incorrect {
+  background: #f8d7da;
+  border-color: #dc3545;
+  color: #721c24;
+}
+
+/* Streak Counter */
+.streak-counter {
+  font-family: "Poppins", sans-serif;
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #222;
+  background: #fafafa;
+  margin: 0;
+  padding: 0;
+}
+
+.prompt {
+    font-family: "Poppins", sans-serif;
     font-size: 1.2rem;
-    font-weight: bold;
-  }
-  
+}

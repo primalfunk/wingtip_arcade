@@ -23,6 +23,15 @@ body {
   height: 100vh;
 }
 
+.main-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
+}
+
 .app-container {
   min-height: 100vh; /* ensures it fills full screen height */
   display: flex;
@@ -36,21 +45,21 @@ body {
 
 .game-box {
   width: 90vw;
-  height: auto;
-  max-width: 800px;
-  min-height: 90vh;
-  overflow-y: auto; /* ✅ allows scrolling if needed */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* ✅ better for vertical stacking */
+  max-width: 600px;
+  min-height: 80vh;
   background: var(--card-bg);
   padding: 1rem;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  text-align: center;
   box-sizing: border-box;
+  overflow-y: auto; /* allow scrolling if content too tall */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
 }
+
 
 .game-grid {
   display: flex;

@@ -60,7 +60,7 @@ function FlashcardGame({ mode, setMode, onQuit }) {
 
   if (showSummary) {
     return (
-      <div className="game-box fade-in">
+      <div className="game-box fade-in main-column" style={{ flexDirection: 'column' }}>
         <img src="/assets/fox-neutral.png" alt="Fox mascot" className="mascot" />
         <h2>Great job!</h2>
         <p>Questions answered: {correctCount + incorrectCount}</p>
@@ -73,7 +73,7 @@ function FlashcardGame({ mode, setMode, onQuit }) {
   }
 
   return (
-    <div key={animKey} className="game-box fade-in">
+    <div key={animKey} className="game-box fade-in main-column" style={{ flexDirection: 'column' }}>
       <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '1rem' }}>
         <select value={mode} onChange={(e) => setMode(e.target.value)}>
           <option value="1x1">1-digit × 1-digit</option>
@@ -109,7 +109,6 @@ function FlashcardGame({ mode, setMode, onQuit }) {
         ✅ {correctCount}  ❌ {incorrectCount}
       </div>
       <StreakCounter streak={streak} />
-      <ScoreCounter />
     </div>
   );
 }

@@ -164,7 +164,7 @@ const creatures = [
     name: "Mokele-mbembe",
     culture: "Congo River Basin",
     trait: "dinosaur-like river beast",
-    image: "/assets/creatures/mokele_mbembe.png",
+    image: "/assets/creatures/mokele-mbembe.png",
     bio: "Mokele-mbembe is a legendary creature of the Congo River Basin, often described as a living dinosaur. It moves silently through swampy waters, shrouded in mystery and legend."
   },
   {
@@ -185,7 +185,7 @@ const creatures = [
     name: "Ittan-Momen",
     culture: "Japanese",
     trait: "haunted roll of cloth",
-    image: "/assets/creatures/ittan_momen.png",
+    image: "/assets/creatures/ittan-momen.png",
     bio: "The Ittan-Momen is a ghostly entity from Japanese folklore that appears as a long strip of cloth, flying through the night and sometimes smothering unwary travelers."
   },
   {
@@ -229,13 +229,6 @@ const creatures = [
     trait: "sea monster creating deadly whirlpools",
     image: "/assets/creatures/charybdis.png",
     bio: "Charybdis is a monstrous sea creature from Greek mythology that creates deadly whirlpools capable of swallowing entire ships. Sailors lived in terror of her wrathful tides."
-  },
-  {
-    name: "Ciguapa",
-    culture: "Dominican",
-    trait: "beautiful woman with backward feet",
-    image: "/assets/creatures/ciguapa.png",
-    bio: "The Ciguapa is a mysterious being from Dominican folklore, a beautiful woman with backward-facing feet who lures travelers into the forest, where they become hopelessly lost."
   },
   {
     name: "Jengu",
